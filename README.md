@@ -1,1 +1,1 @@
-# MovieFinderProject
+# Movie Search Project
