@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author edenm
- *
- */
-module MovieSearchServer {
-}
