@@ -39,6 +39,12 @@ public class Movie {
 		this.trailerLink = trailerLink;
 	}
 	
+	 public boolean validate() {
+	        return name != null && !name.trim().isEmpty() &&
+	               description != null && !description.trim().isEmpty() &&
+	               trailerLink != null && !trailerLink.trim().isEmpty();
+	    }
+	
 	@Override
 	public boolean equals(Object obj) {
 	    if (this == obj)
