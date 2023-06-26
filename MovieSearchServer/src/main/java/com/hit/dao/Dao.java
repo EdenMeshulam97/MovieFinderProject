@@ -22,6 +22,8 @@ public class Dao implements IDao {
         this.dbPath = dbPath;
     }
 	
+	
+	
 	@Override
 	public ArrayList<Movie> getMovies() 
 	{
@@ -51,15 +53,19 @@ public class Dao implements IDao {
 	{
 		boolean result = false;
 	    ArrayList<Movie> movies = getMovies();
-	    movies.add(movie);
 
-	    try (Writer writer = new FileWriter(dbPath)) {
-	        Gson gson = new Gson();
-	        gson.toJson(movies, writer);
-	        result = true;
-	    } catch (IOException e) {
-	        System.out.println("Unable to write to DB File.");
-	        e.printStackTrace();
+	    // Check if the movie is already in the list
+	    if (!movies.contains(movie)) {
+	        movies.add(movie);
+
+	        try (Writer writer = new FileWriter(dbPath)) {
+	            Gson gson = new Gson();
+	            gson.toJson(movies, writer);
+	            result = true;
+	        } catch (IOException e) {
+	            System.out.println("Unable to write to DB File.");
+	            e.printStackTrace();
+	        }
 	    }
 
 	    return result;
