@@ -25,7 +25,6 @@ public class DaoTest {
     @Before
     public void setUp() throws IOException, InterruptedException {
         
-        //Files.copy(Paths.get(dbPath), Paths.get(testDBPath));
     	backupAndRestore = new BackupAndRestore();
     	backupAndRestore.backup(sourceFilePath, testFilePath,0,50000);
     	Thread.sleep(100);
